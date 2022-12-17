@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import Dock from '@/components/ui/Dock/';
 import StatusBar from '@/components/ui/StatusBar';
 </script>
 <template>
 	<main>
-		<StatusBar></StatusBar>
+		<StatusBar />
+		<Dock />
 	</main>
 </template>

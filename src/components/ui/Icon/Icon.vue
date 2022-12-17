@@ -4,7 +4,7 @@ import { computed } from 'vue';
 const props = withDefaults(
 	defineProps<{
 		name: string;
-		size: 'medium' | 'small' | 'large';
+		size: 'medium' | 'small' | 'large' | 'custom';
 		alt: string;
 	}>(),
 	{
@@ -23,7 +23,7 @@ const classes = computed(() => ({
 </script>
 
 <template>
-	<img :src="icon" v-bind="$attrs" role="img" :class="classes" alt="" />
+	<img :src="icon" v-bind="$attrs" :class="classes" :alt="name" />
 </template>
 
 <style lang="scss" scoped>

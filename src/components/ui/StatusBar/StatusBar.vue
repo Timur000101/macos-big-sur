@@ -1,5 +1,10 @@
 <script setup lang="ts">
+import ControlCenter from '@/components/shared/ControlCenter';
+import type { Ref } from 'vue';
+import { ref } from 'vue';
 import Icon from '../Icon';
+
+const showControlCenter: Ref<boolean> = ref(false);
 </script>
 <template>
 	<div class="status-bar">
@@ -29,8 +34,16 @@ import Icon from '../Icon';
 					<li>
 						<Icon name="battery" size="large" />
 					</li>
-					<li>
-						<Icon name="control" size="large" />
+					<li :class="{ active: showControlCenter }">
+						<Icon
+							name="control"
+							size="large"
+							@click="
+								() => {
+									showControlCenter = !showControlCenter;
+								}
+							"
+						/>
 					</li>
 					<li class="clock">
 						<span>12:43 PM</span>
@@ -39,6 +52,8 @@ import Icon from '../Icon';
 			</div>
 		</div>
 	</div>
+
+	<ControlCenter v-model="showControlCenter" />
 </template>
 
 <style lang="scss" scoped>
@@ -125,5 +140,10 @@ import Icon from '../Icon';
 			padding: 0 5px;
 		}
 	}
+}
+
+.active {
+	background: rgba(255, 255, 255, 0.26);
+	border-radius: 5px;
 }
 </style>

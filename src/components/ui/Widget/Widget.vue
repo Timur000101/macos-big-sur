@@ -11,7 +11,7 @@ import { useSystemStore } from "@/stores/system";
 import { computed, ref } from "vue";
 
 const props = withDefaults(
-	defineProps<{
+  defineProps<{
     modelValue?: boolean;
     paddingTop?: string;
     paddingRight?: string;

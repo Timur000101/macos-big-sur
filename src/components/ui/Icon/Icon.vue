@@ -2,15 +2,15 @@
 import { computed } from "vue";
 
 const props = withDefaults(
-	defineProps<{
+  defineProps<{
     name: string;
     size?: "medium" | "small" | "large" | "custom";
     color?: string;
   }>(),
-	{
-		size: 'medium',
+  {
+    size: "medium",
     color: "white"
-	}
+  }
 );
 const icon = computed(() => {
 	props.name;

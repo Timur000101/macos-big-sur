@@ -42,16 +42,16 @@ onClickOutside(controlCenter, () => (showControlCenter.value = false));
 					<li>
 						<Icon name="battery" size="large" />
 					</li>
-					<li :class="{ active: showControlCenter }">
+          <li :class="{ active: showControlCenter }">
             <Icon name="control" size="large" @click="toggleControlCenter" />
-					</li>
-					<li class="clock">
-						<span>12:43 PM</span>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
+          </li>
+          <li class="clock">
+            <span>12:43 PM</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
   
   <ControlCenter ref="controlCenter" v-model="showControlCenter" />
 </template>

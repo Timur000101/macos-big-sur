@@ -90,7 +90,7 @@
         <Slider icon-name="sound-off" />
       </widget>
     </div>
-	</widget>
+  </widget>
 </template>
 
 <script setup lang="ts">

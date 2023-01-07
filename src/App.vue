@@ -1,18 +1,19 @@
 <script setup lang="ts">
-// import { useSystemStore } from '@/stores/system';
+import { useSystemStore } from '@/stores/system';
+import { computed } from 'vue';
 import { RouterView } from 'vue-router';
 
-// const systemStore = useSystemStore();
+const systemStore = useSystemStore();
 
-// const rootStyle = reactive({
-// 	'background-image': systemStore.isDarkMode
-// 		? `url(${new URL('./components/wallpapers/dark-mode.svg', import.meta.url)}`
-// 		: `url(${new URL('./components/wallpapers/light-mode.svg', import.meta.url).href})`
-// });
+const rootStyle = computed(() => {
+	return systemStore.isDarkMode
+		? `url(${new URL('./components/wallpapers/dark-mode.png', import.meta.url).href}`
+		: `url(${new URL('./components/wallpapers/light-mode.png', import.meta.url).href})`;
+});
 </script>
 
 <template>
-	<div class="root">
+	<div class="root" :style="{ 'background-image': rootStyle }">
 		<RouterView />
 	</div>
 </template>
@@ -24,7 +25,5 @@ import { RouterView } from 'vue-router';
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
-	background-color: #5856d6;
-	//	background-image: url('./components/wallpapers/light-mode.svg');
 }
 </style>

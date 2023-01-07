@@ -7,7 +7,6 @@
 </template>
 
 <script setup lang="ts">
-import { useSystemStore } from '@/stores/system';
 import { computed, ref } from 'vue';
 
 const props = withDefaults(
@@ -44,11 +43,9 @@ const value = computed({
 	}
 });
 
-const systemStore = useSystemStore();
 const widget = ref(null);
 
 const computedStyle = computed(() => ({
-	'background-color': systemStore.isDarkMode ? `rgba(30, 30, 30, .7)` : `rgba(255, 255, 255, ${props.opacity})`,
 	padding: `${props.paddingTop} ${props.paddingRight} ${props.paddingBottom} ${props.paddingLeft}`,
 	'border-radius': `${props.borderRadius}`
 }));
@@ -57,20 +54,13 @@ const computedStyle = computed(() => ({
 <style lang="scss" scoped>
 .widget {
 	border-radius: 20px;
+	background-color: var(--widget-background);
+	box-shadow: 0px 10px 10px var(--shadows---large);
+	backdrop-filter: blur(48px);
 
 	&__inner {
 		width: 100%;
 		height: 100%;
 	}
-}
-
-body.light .widget {
-	border: 0.5px solid #f4f5f5;
-	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.16);
-}
-
-body.dark .widget {
-	border: 0.5px solid rgba(255, 255, 255, 0.26);
-	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
 }
 </style>

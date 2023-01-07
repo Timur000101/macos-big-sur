@@ -8,7 +8,7 @@
 							<Icon name="Wi-Fi" :color="systemStore.wifi ? 'white' : 'gray-dark'" />
 						</div>
 						<div class="network_control__info">
-							<h6 class="network_control__title">Wi-Fi</h6>
+							<p class="network_control__title title">Wi-Fi</p>
 							<span class="network_control__status">My iPhone</span>
 						</div>
 						<div class="network_control__arrow">
@@ -25,7 +25,7 @@
 							<Icon name="Radio-waves" :color="systemStore.bluetooth ? 'white' : 'gray-dark'" />
 						</div>
 						<div class="network_control__info">
-							<h6 class="network_control__title">Bluetooth</h6>
+							<p class="network_control__title title">Bluetooth</p>
 							<span class="network_control__status">Off</span>
 						</div>
 						<div class="network_control__arrow">
@@ -42,7 +42,7 @@
 							<Icon name="Airdrop" :color="systemStore.airDrop ? 'white' : 'gray-dark'" />
 						</div>
 						<div class="network_control__info">
-							<h6 class="network_control__title">AirDrop</h6>
+							<p class="network_control__title title">AirDrop</p>
 							<span class="network_control__status">Off</span>
 						</div>
 						<div class="network_control__arrow">
@@ -60,31 +60,31 @@
 					>
 						<Icon name="Moon" :color="systemStore.isDarkMode ? 'white' : 'gray-dark'" />
 					</div>
-					<span>Dark Mode</span>
+					<span class="theme-switch__label">Dark Mode</span>
 				</div>
 			</widget>
 			<widget class="keyboard-brightness-widget">
 				<div class="simple-control">
 					<Icon name="Keyboard-brightness" :color="`gray-${systemStore.isDarkMode ? 'light' : 'dark'}`" />
-					<span class="simple-control__title">Keyboard Brightness</span>
+					<span class="simple-control__title title">Keyboard Brightness</span>
 				</div>
 			</widget>
 			<widget class="screen-mirroring-widget">
 				<div class="simple-control">
 					<Icon name="Pages" :color="`gray-${systemStore.isDarkMode ? 'light' : 'dark'}`" />
-					<span class="simple-control__title">Screen Mirroring</span>
+					<span class="simple-control__title title">Screen Mirroring</span>
 				</div>
 			</widget>
 			<widget class="display-control-widget display-widget">
 				<div class="display-control-widget__header">
-					<span>Display</span>
+					<span class="title">Display</span>
 					<Icon name="Chevron-right" :color="`gray-${systemStore.isDarkMode ? 'light' : 'dark'}`" />
 				</div>
 				<Slider icon-name="Brightness" />
 			</widget>
 			<widget class="display-control-widget sound-widget">
 				<div class="display-control-widget__header">
-					<span>Sound</span>
+					<span class="title">Sound</span>
 					<Icon name="Chevron-right" :color="`gray-${systemStore.isDarkMode ? 'light' : 'dark'}`" />
 				</div>
 				<Slider icon-name="sound-off" />
@@ -143,26 +143,6 @@ const value = computed({
 	grid-area: a;
 }
 
-body.light .network_control {
-	&__title {
-		color: black;
-	}
-
-	&__icon {
-		background-color: rgba(0, 0, 0, 0.1);
-	}
-}
-
-body.dark .network_control {
-	&__title {
-		color: white;
-	}
-
-	&__icon {
-		background-color: rgba(255, 255, 255, 0.1);
-	}
-}
-
 .network_control {
 	display: grid;
 	grid-template-columns: 28px 1fr 24px;
@@ -181,6 +161,7 @@ body.dark .network_control {
 		align-items: center;
 		margin-right: 8px;
 		border-radius: 50%;
+		background-color: var(--quaternary);
 	}
 
 	&__info {
@@ -196,28 +177,16 @@ body.dark .network_control {
 	&__status {
 		font-size: 11px;
 		font-weight: 400;
-		color: $light-secondary;
+		color: var(--secondary);
 	}
 }
 
 .network_control .network_control__icon.active {
-	background: $blue;
+	background: var(--system---blue);
 }
 
 .theme-switch-widget {
 	grid-area: b;
-}
-
-body.light .theme-switch {
-	span {
-		color: black;
-	}
-}
-
-body.dark .theme-switch {
-	span {
-		color: white;
-	}
 }
 
 .theme-switch {
@@ -233,12 +202,16 @@ body.dark .theme-switch {
 		align-items: center;
 		margin-right: 8px;
 		border-radius: 50%;
-		background: $light-quaternary;
+		background: var(--quaternary);
+	}
+
+	&__label {
+		color: var(--text);
 	}
 }
 
 .theme-switch__icon.active {
-	background: $indigo;
+	background: var(--system---indigo);
 }
 
 .keyboard-brightness-widget {
@@ -247,18 +220,6 @@ body.dark .theme-switch {
 
 .screen-mirroring-widget {
 	grid-area: d;
-}
-
-body.light .simple-control {
-	span {
-		color: black;
-	}
-}
-
-body.dark .simple-control {
-	span {
-		color: white;
-	}
 }
 
 .simple-control {
@@ -277,18 +238,6 @@ body.dark .simple-control {
 	grid-area: e;
 }
 
-body.light .display-control-widget {
-	span {
-		color: black;
-	}
-}
-
-body.dark .display-control-widget {
-	span {
-		color: white;
-	}
-}
-
 .display-control-widget {
 	&__header {
 		display: flex;
@@ -305,5 +254,9 @@ body.dark .display-control-widget {
 
 .sound-widget {
 	grid-area: g;
+}
+
+.title {
+	color: var(--text);
 }
 </style>

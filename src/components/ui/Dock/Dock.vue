@@ -80,10 +80,10 @@ const handleMouseEnter = () => {
         grid-template-columns: repeat(${apps.length}, 1fr);
         width: ${dockWidth}px
      `"
-			@mousemove="handleMouseMove"
-			@mouseleave="handleMouseLeave"
-			@mouseenter="handleMouseEnter"
 		>
+			<!--			@mousemove="handleMouseMove"-->
+			<!--			@mouseleave="handleMouseLeave"-->
+			<!--			@mouseenter="handleMouseEnter"-->
 			<li v-for="app in apps" :key="app.id" class="dock-item">
 				<div class="dock-item__inner">
 					<img ref="appsElem" :src="icon(app.id)" width="48" height="48" alt="" />
@@ -107,7 +107,7 @@ const handleMouseEnter = () => {
 		grid-column-gap: 10px;
 		padding: 6px 8px;
 		border-radius: 16px;
-		background: $light;
+		background: var(--alternate---content---background);
 		position: relative;
 	}
 

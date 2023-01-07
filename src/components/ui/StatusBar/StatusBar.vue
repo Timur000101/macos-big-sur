@@ -60,7 +60,7 @@ onClickOutside(controlCenter, () => (showControlCenter.value = false));
 .status-bar {
 	height: 32px;
 	width: 100%;
-	background-color: rgba(0, 0, 0, 0.25);
+	background-color: var(--quaternary);
 
 	&__inner {
 		display: flex;
@@ -79,7 +79,7 @@ onClickOutside(controlCenter, () => (showControlCenter.value = false));
 			margin-right: 12px;
 
 			&:hover {
-				background: rgba(255, 255, 255, 0.26);
+				background: var(--tertiary---label);
 				border-radius: 5px;
 			}
 
@@ -101,14 +101,14 @@ onClickOutside(controlCenter, () => (showControlCenter.value = false));
 				cursor: default;
 
 				&:hover {
-					background: rgba(255, 255, 255, 0.26);
+					background: var(--tertiary---label);
 					border-radius: 5px;
 				}
 
 				span {
 					font-size: 13px;
 					font-weight: 600;
-					color: $white;
+					color: var(--alternate---selected-control---text);
 				}
 			}
 		}
@@ -125,14 +125,14 @@ onClickOutside(controlCenter, () => (showControlCenter.value = false));
 			margin: 0 5px;
 
 			&:hover {
-				background: rgba(255, 255, 255, 0.26);
+				background: var(--tertiary---label);
 				border-radius: 5px;
 			}
 
 			span {
 				font-size: 13px;
 				font-weight: 600;
-				color: $white;
+				color: var(--alternate---selected-control---text);
 			}
 		}
 
@@ -143,7 +143,7 @@ onClickOutside(controlCenter, () => (showControlCenter.value = false));
 }
 
 .active {
-	background: rgba(255, 255, 255, 0.26);
+	background: var(--tertiary---label);
 	border-radius: 5px;
 }
 </style>

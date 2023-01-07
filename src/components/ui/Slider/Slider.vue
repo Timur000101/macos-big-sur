@@ -36,13 +36,13 @@ const onChange = (event: Event) => {
 	width: 100%;
 	height: 22px;
 	border-radius: 0 16px 16px 0;
-	border-top: 1px solid $light-quaternary;
-	border-right: 1px solid $light-quaternary;
-	border-bottom: 1px solid $light-quaternary;
+	border-top: 1px solid var(--quaternary);
+	border-right: 1px solid var(--quaternary);
+	border-bottom: 1px solid var(--quaternary);
 	-webkit-appearance: none;
 	outline: none;
 	overflow: hidden;
-	background: #d9d9d9;
+	background: var(--quaternary);
 	//	box-shadow: inset 0 0 5px 2px rgba(0, 0, 0, 0.05);
 
 	&::-webkit-slider-thumb {
@@ -50,11 +50,11 @@ const onChange = (event: Event) => {
 		width: 20px;
 		height: 20px;
 		border-radius: 50%;
-		background: $white;
+		background: var(--alternate---selected-control---text);
 		margin-right: 30px;
 		cursor: pointer;
-		box-shadow: -409px 0 0 400px $white;
-		border: 1px solid rgba(0, 0, 0, 0.1);
+		box-shadow: -409px 0 0 400px var(--alternate---selected-control---text);
+		border: 1px solid var(--quaternary);
 	}
 
 	&__wrapper {
@@ -68,13 +68,10 @@ const onChange = (event: Event) => {
 		align-items: center;
 		height: 22px;
 		border-radius: 16px 0 0 16px;
-		border-top: 1px solid $light-quaternary;
-		border-left: 1px solid $light-quaternary;
-		border-bottom: 1px solid $light-quaternary;
-		background: $white;
-		//		position: absolute;
-		//		top: -2px;
-		//		left: 3px;
+		border-top: 1px solid var(--placeholder-text);
+		border-left: 1px solid var(--placeholder-text);
+		border-bottom: 1px solid var(--placeholder-text);
+		background: var(--alternate---selected-control---text);
 	}
 }
 </style>

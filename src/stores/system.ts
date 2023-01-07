@@ -10,7 +10,7 @@ interface SystemState {
 }
 
 const dark = useDark({
-	selector: 'body',
+	selector: 'html',
 	attribute: 'class',
 	valueDark: 'dark',
 	valueLight: 'light'

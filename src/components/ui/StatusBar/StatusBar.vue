@@ -1,10 +1,18 @@
 <script setup lang="ts">
-import ControlCenter from '@/components/shared/ControlCenter';
-import type { Ref } from 'vue';
-import { ref } from 'vue';
-import Icon from '../Icon';
+import ControlCenter from "@/components/shared/ControlCenter";
+import { onClickOutside } from "@vueuse/core";
+import type { Ref } from "vue";
+import { ref } from "vue";
+import Icon from "../Icon";
 
+const controlCenter: Ref<HTMLElement | null | undefined> = ref(null);
 const showControlCenter: Ref<boolean> = ref(false);
+
+const toggleControlCenter = () => {
+  showControlCenter.value = true;
+};
+
+onClickOutside(controlCenter, () => (showControlCenter.value = false));
 </script>
 <template>
 	<div class="status-bar">
@@ -35,15 +43,7 @@ const showControlCenter: Ref<boolean> = ref(false);
 						<Icon name="battery" size="large" />
 					</li>
 					<li :class="{ active: showControlCenter }">
-						<Icon
-							name="control"
-							size="large"
-							@click="
-								() => {
-									showControlCenter = !showControlCenter;
-								}
-							"
-						/>
+            <Icon name="control" size="large" @click="toggleControlCenter" />
 					</li>
 					<li class="clock">
 						<span>12:43 PM</span>
@@ -52,8 +52,8 @@ const showControlCenter: Ref<boolean> = ref(false);
 			</div>
 		</div>
 	</div>
-
-	<ControlCenter v-model="showControlCenter" />
+  
+  <ControlCenter ref="controlCenter" v-model="showControlCenter" />
 </template>
 
 <style lang="scss" scoped>

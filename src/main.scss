@@ -1,8 +1,30 @@
+@font-face {
+	font-family: 'SFProDisplay';
+	font-style: normal;
+	font-weight: 400;
+	src: local('SFProDisplay'), url('./assets/fonts/SFProDisplay-Regular.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'SFProDisplay';
+	font-style: normal;
+	font-weight: 500;
+	src: local('SFProDisplay'), url('./assets/fonts/SFProDisplay-Medium.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'SFProDisplay';
+	font-style: normal;
+	font-weight: 600;
+	src: local('SFProDisplay'), url('./assets/fonts/SFProDisplay-Semibold.ttf') format('truetype');
+}
+
+
 *, *::after, *::before {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: sans-serif;
+	font-family: 'SFProDisplay', sans-serif;
 	-webkit-user-select: none;
 	-ms-user-select: none;
 	user-select: none;

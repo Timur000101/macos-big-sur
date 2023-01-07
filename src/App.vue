@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // import { useSystemStore } from '@/stores/system';
-import { RouterView } from "vue-router";
+import { RouterView } from 'vue-router';
 
 // const systemStore = useSystemStore();
 

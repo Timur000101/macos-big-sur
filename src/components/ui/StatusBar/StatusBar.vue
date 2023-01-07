@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import ControlCenter from "@/components/shared/ControlCenter";
-import { onClickOutside } from "@vueuse/core";
-import type { Ref } from "vue";
-import { ref } from "vue";
-import Icon from "../Icon";
+import ControlCenter from '@/components/shared/ControlCenter';
+import { onClickOutside } from '@vueuse/core';
+import type { Ref } from 'vue';
+import { ref } from 'vue';
+import Icon from '../Icon';
 
 const controlCenter: Ref<HTMLElement | null | undefined> = ref(null);
 const showControlCenter: Ref<boolean> = ref(false);

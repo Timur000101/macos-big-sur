@@ -94,11 +94,11 @@
 </template>
 
 <script setup lang="ts">
-import Icon from "@/components/ui/Icon";
-import Slider from "@/components/ui/Slider/Slider.vue";
-import Widget from "@/components/ui/Widget";
-import { useSystemStore } from "@/stores/system";
-import { computed } from "vue";
+import Icon from '@/components/ui/Icon';
+import Slider from '@/components/ui/Slider/Slider.vue';
+import Widget from '@/components/ui/Widget';
+import { useSystemStore } from '@/stores/system';
+import { computed } from 'vue';
 
 const systemStore = useSystemStore();
 

@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import Finder from "@/components/apps/finder";
-import Dock from "@/components/ui/Dock/";
-import StatusBar from "@/components/ui/StatusBar";
-import type { Ref } from "vue";
-import { ref } from "vue";
+import Finder from '@/components/apps/finder';
+import Dock from '@/components/ui/Dock/';
+import StatusBar from '@/components/ui/StatusBar';
+import type { Ref } from 'vue';
+import { ref } from 'vue';
 
 const finder: Ref<boolean> = ref(true);
 </script>

@@ -7,8 +7,8 @@
 </template>
 
 <script setup lang="ts">
-import { useSystemStore } from "@/stores/system";
-import { computed, ref } from "vue";
+import { useSystemStore } from '@/stores/system';
+import { computed, ref } from 'vue';
 
 const props = withDefaults(
 	defineProps<{

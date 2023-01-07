@@ -23,11 +23,11 @@
 </template>
 
 <script setup lang="ts">
-import { getCoords } from "@/utils/dom";
-import type { Ref } from "vue";
-import { computed, onMounted, ref } from "vue";
-import "./_window.scss";
-import WindowControls from "./components/WindowControls.vue";
+import { getCoords } from '@/utils/dom';
+import type { Ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
+import './_window.scss';
+import WindowControls from './components/WindowControls.vue';
 
 type HtmlType = HTMLElement | null | undefined;
 type WindowType = 'simple' | 'sidebar' | 'sidebar-header' | 'sidebar-blocks';

@@ -8,19 +8,19 @@ import { ref } from "vue";
 const finder: Ref<boolean> = ref(true);
 </script>
 <template>
-  <main>
-    <StatusBar />
-    <div ref="desktop" class="desktop">
-      <Finder v-model="finder" />
-    </div>
-    <Dock />
-  </main>
+	<main>
+		<StatusBar />
+		<div ref="desktop" class="desktop">
+			<Finder v-model="finder" />
+		</div>
+		<Dock />
+	</main>
 </template>
 
 <style lang="scss" scoped>
 .desktop {
-  width: 100vw;
-  height: calc(100vh - 32px);
-  position: relative;
+	width: 100vw;
+	height: calc(100vh - 32px);
+	position: relative;
 }
 </style>

@@ -9,7 +9,7 @@ const controlCenter: Ref<HTMLElement | null | undefined> = ref(null);
 const showControlCenter: Ref<boolean> = ref(false);
 
 const toggleControlCenter = () => {
-  showControlCenter.value = true;
+	showControlCenter.value = true;
 };
 
 onClickOutside(controlCenter, () => (showControlCenter.value = false));
@@ -42,18 +42,18 @@ onClickOutside(controlCenter, () => (showControlCenter.value = false));
 					<li>
 						<Icon name="battery" size="large" />
 					</li>
-          <li :class="{ active: showControlCenter }">
-            <Icon name="control" size="large" @click="toggleControlCenter" />
-          </li>
-          <li class="clock">
-            <span>12:43 PM</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  
-  <ControlCenter ref="controlCenter" v-model="showControlCenter" />
+					<li :class="{ active: showControlCenter }">
+						<Icon name="control" size="large" @click="toggleControlCenter" />
+					</li>
+					<li class="clock">
+						<span>12:43 PM</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<ControlCenter ref="controlCenter" v-model="showControlCenter" />
 </template>
 
 <style lang="scss" scoped>

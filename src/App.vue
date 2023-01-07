@@ -12,19 +12,19 @@ import { RouterView } from "vue-router";
 </script>
 
 <template>
-  <div class="root">
-    <RouterView />
-  </div>
+	<div class="root">
+		<RouterView />
+	</div>
 </template>
 
 <style lang="scss" scoped>
 .root {
-  width: 100vw;
-  height: 100vh;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-color: #5856d6;
-  //	background-image: url('./components/wallpapers/light-mode.svg');
+	width: 100vw;
+	height: 100vh;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-color: #5856d6;
+	//	background-image: url('./components/wallpapers/light-mode.svg');
 }
 </style>

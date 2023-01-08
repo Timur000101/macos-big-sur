@@ -25,7 +25,7 @@
 <script setup lang="ts">
 import { getCoords } from '@/utils/dom';
 import type { Ref } from 'vue';
-import { computed, onMounted, ref } from 'vue';
+import { computed, onMounted, ref, watch } from 'vue';
 import './_window.scss';
 import WindowControls from './components/WindowControls.vue';
 
@@ -76,25 +76,14 @@ const resetMouseMoveHandler = () => {
 	};
 };
 
-const onRightBorderDown = () => {
-	document.onmousemove = (e) => {
-		const delta = e.pageX - windowCoords.value.right;
-		const value = windowCoords.value.width + delta;
-		if (minWidth.value <= value) {
-			(window.value as HTMLElement).style.width = `${value}px`;
-		}
-	};
-	resetMouseMoveHandler();
-};
-
 const onTopBorderDown = () => {
 	document.onmousemove = (e) => {
 		const delta = Math.floor(e.pageY - windowCoords.value.top);
 		const revertDelta = delta > 0 ? -Math.abs(delta) : Math.abs(delta);
 		const value = windowCoords.value.height + revertDelta;
 		if (minHeight.value <= value) {
-			(window.value as HTMLElement).style.height = `${value}px`;
-			(window.value as HTMLElement).style.transform = `translate(${transformX.value}px, ${e.clientY - 32}px)`;
+			height.value = value;
+			transformY.value = e.clientY - 32;
 		}
 	};
 	resetMouseMoveHandler();
@@ -105,7 +94,7 @@ const onBottomBorderDown = () => {
 		const delta = Math.floor(e.pageY - windowCoords.value.bottom);
 		const value = windowCoords.value.height + delta;
 		if (minHeight.value <= value) {
-			(window.value as HTMLElement).style.height = `${value}px`;
+			height.value = value;
 		}
 	};
 	resetMouseMoveHandler();
@@ -116,11 +105,21 @@ const onLeftBorderDown = () => {
 		const delta = e.pageX - windowCoords.value.left;
 		const value = windowCoords.value.width - delta;
 		if (minWidth.value <= value) {
-			(window.value as HTMLElement).style.width = `${value}px`;
-			(window.value as HTMLElement).style.transform = `translate(${e.clientX}px, ${transformY.value}px)`;
+			width.value = value;
+			transformX.value = e.clientX;
 		}
 	};
+	resetMouseMoveHandler();
+};
 
+const onRightBorderDown = () => {
+	document.onmousemove = (e) => {
+		const delta = e.pageX - windowCoords.value.right;
+		const value = windowCoords.value.width + delta;
+		if (minWidth.value <= value) {
+			width.value = value;
+		}
+	};
 	resetMouseMoveHandler();
 };
 
@@ -136,6 +135,20 @@ const onSideBarBorderDown = () => {
 
 	resetMouseMoveHandler();
 };
+
+watch(
+	() => height.value,
+	() => {
+		windowCoords.value = getCoords(window.value as HTMLElement);
+	}
+);
+
+watch(
+	() => width.value,
+	() => {
+		windowCoords.value = getCoords(window.value as HTMLElement);
+	}
+);
 
 onMounted(() => {
 	windowCoords.value = getCoords(window.value as HTMLElement);
